@@ -84,11 +84,10 @@ class Pedido:
 
     def cancelar(self) -> bool:
         if self.esta_entregue:
-        return False(esta_cancelado)
+            return False
 
         if self.esta_cancelado:
-        return False(esta_cancelado)
+            return False
 
-        # TODO: marcar o pedido como cancelado
-
-        return True(esta_cancelado)
+        self.esta_cancelado = True
+        return True

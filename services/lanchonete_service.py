@@ -140,5 +140,28 @@ class LanchoneteService:
         """
         return db.pedidos_por_codigo.get(cod_pedido)
 
+    def cancelar_pedido(self, cod_pedido: int) -> bool:
+        pedido = self.pedido_repository.buscar_por_codigo(cod_pedido)
+
+        if pedido is None:
+            return False
+
+        # TODO: chamar o método cancelar do pedido
+
+        return False
+
+    def listar_pedidos_cancelados(self):
+        pedidos = self.pedido_repository.listar_todos()
+        lista = []
+
+        for pedido in pedidos:
+            if self.esta_cancelado == True:
+                lista.append(pedido)
+            else:
+                continue
+
+        return lista(lista)
+
+
 
 service = LanchoneteService()
